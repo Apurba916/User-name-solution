@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+void user_name_creator(){
+    char name[100];
+    printf("Enter your user name:\n");
+    fgets(name, 100, stdin);
+    name[strcspn(name, "\n")] = 0; // Remove newline character
+    printf("From now on I will call you %s\n", name);
+}
+
+void username_changer(){
+    char old_name[100];
+    printf("Enter your old user name:\n");
+    fgets(old_name, 100, stdin);
+    old_name[strcspn(old_name, "\n")] = 0; // Remove newline character
+    char new_name[100];
+    printf("Enter your new user name:\n");
+    fgets(new_name, 100, stdin);
+    new_name[strcspn(new_name, "\n")] = 0; // Remove newline character
+    printf("From now on I will call you %s and not %s\n", new_name, old_name);
+}
+
+int main(){
+    printf("Welcome to our application!\n");
+    printf("We hope you can get the most of our app.\nBut before going further, let's know about you.\nWhat is your name?\n");
+    printf("Please select an option:\n1 = Okay, I am entering my name.\n2 = I have already told you my name\n3 = Exit\n");
+    int options;
+    scanf("%d", &options);
+    getchar(); // Consume the newline character left by scanf
+    if (options == 1){
+        printf("Please enter your name here:\n");
+        user_name_creator();
+    }
+    else if (options == 2){
+        printf("It seems we are long-time friends.\n");
+        username_changer();
+    }
+    else {
+        printf("Please choose a valid option.\n");
+    }
+
+    return 0;
+}

@@ -37,7 +37,7 @@ int main(){
         username_changer();
     }
     else {
-        printf("Please choose a valid option.\n");
+       break;
     }
 
     return 0;
